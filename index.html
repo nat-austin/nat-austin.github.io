@@ -21,12 +21,48 @@
         >
 
         <nav class="discovery-nav" aria-label="Portfolio navigation">
-          <a class="discovery-link discovery-link--about" href="about.html" aria-label="About Me">About</a>
-          <a class="discovery-link discovery-link--portfolio" href="portfolio.html" aria-label="Portfolio">Work</a>
-          <a class="discovery-link discovery-link--resume" href="resume.html">Résumé</a>
-          <a class="discovery-link discovery-link--contact" href="contact.html">Contact</a>
+          <a class="discovery-link discovery-link--about" data-vial="1" href="about.html" aria-label="About Me">About</a>
+          <a class="discovery-link discovery-link--portfolio" data-vial="2" href="portfolio.html" aria-label="Portfolio">Work</a>
+          <a class="discovery-link discovery-link--resume" data-vial="3" href="resume.html">Résumé</a>
+          <a class="discovery-link discovery-link--contact" data-vial="4" href="contact.html">Contact</a>
+
+          <a class="vial-link vial-link--about" data-vial="1" href="about.html" aria-label="About Me fragrance vial"></a>
+          <a class="vial-link vial-link--portfolio" data-vial="2" href="portfolio.html" aria-label="Portfolio fragrance vial"></a>
+          <a class="vial-link vial-link--resume" data-vial="3" href="resume.html" aria-label="Résumé fragrance vial"></a>
+          <a class="vial-link vial-link--contact" data-vial="4" href="contact.html" aria-label="Contact fragrance vial"></a>
         </nav>
       </figure>
     </main>
+
+    <script>
+      const numberedLinks = document.querySelectorAll("[data-vial]");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+      numberedLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          if (
+            event.button !== 0 ||
+            event.metaKey ||
+            event.ctrlKey ||
+            event.shiftKey ||
+            event.altKey ||
+            reducedMotion.matches
+          ) {
+            return;
+          }
+
+          event.preventDefault();
+
+          const vial = document.querySelector(
+            `.vial-link[data-vial="${link.dataset.vial}"]`
+          );
+          vial.classList.add("is-selected");
+
+          window.setTimeout(() => {
+            window.location.assign(link.href);
+          }, 360);
+        });
+      });
+    </script>
   </body>
 </html>

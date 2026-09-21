@@ -1,4 +1,5 @@
 :root {
+  --page-background: #fdf7ed;
   --page-gutter: 24px;
   --heading-top: 80px;
   --heading-image-gap: 40px;
@@ -12,7 +13,7 @@
 }
 
 html {
-  background: #fff;
+  background: var(--page-background);
   color: #000;
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -21,7 +22,7 @@ body {
   min-width: 0;
   margin: 0;
   overflow-x: hidden;
-  background: #fff;
+  background: var(--page-background);
 }
 
 a {
@@ -62,6 +63,7 @@ a {
 
 .discovery-link {
   position: absolute;
+  z-index: 2;
   top: 35%;
   display: inline-flex;
   align-items: center;
@@ -93,7 +95,19 @@ a {
 
 .discovery-link:hover,
 .discovery-link:focus-visible,
-.discovery-link:active {
+.discovery-link:active,
+.discovery-nav:has(.vial-link--about:hover) .discovery-link--about,
+.discovery-nav:has(.vial-link--about:focus-visible) .discovery-link--about,
+.discovery-nav:has(.vial-link--about.is-selected) .discovery-link--about,
+.discovery-nav:has(.vial-link--portfolio:hover) .discovery-link--portfolio,
+.discovery-nav:has(.vial-link--portfolio:focus-visible) .discovery-link--portfolio,
+.discovery-nav:has(.vial-link--portfolio.is-selected) .discovery-link--portfolio,
+.discovery-nav:has(.vial-link--resume:hover) .discovery-link--resume,
+.discovery-nav:has(.vial-link--resume:focus-visible) .discovery-link--resume,
+.discovery-nav:has(.vial-link--resume.is-selected) .discovery-link--resume,
+.discovery-nav:has(.vial-link--contact:hover) .discovery-link--contact,
+.discovery-nav:has(.vial-link--contact:focus-visible) .discovery-link--contact,
+.discovery-nav:has(.vial-link--contact.is-selected) .discovery-link--contact {
   color: #d71936;
   opacity: 1;
   text-shadow:
@@ -107,7 +121,7 @@ a {
   outline-offset: 4px;
 }
 
-/* Each left value aligns one label with a fragrance vial. */
+/* Each label is centered over its fragrance vial. */
 .discovery-link--about {
   left: 27%;
 }
@@ -122,6 +136,107 @@ a {
 
 .discovery-link--contact {
   left: 73%;
+}
+
+.vial-link {
+  position: absolute;
+  z-index: 1;
+  top: 55.95%;
+  height: 26.45%;
+  color: #000;
+  text-decoration: none;
+  transform: translateX(-50%);
+}
+
+.vial-link--about {
+  left: 26.36%;
+  width: 7.76%;
+}
+
+.vial-link--portfolio {
+  left: 41.7%;
+  width: 7.4%;
+}
+
+.vial-link--resume {
+  left: 56.82%;
+  width: 7.67%;
+}
+
+.vial-link--contact {
+  left: 72.21%;
+  width: 7.58%;
+}
+
+.vial-link::before,
+.vial-link::after {
+  position: absolute;
+  z-index: 0;
+  background: rgba(248, 232, 205, 0.22);
+  content: "";
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+/* Separate fitted pieces keep the overlay off the surrounding paper. */
+.vial-link::before {
+  top: -1%;
+  left: -1.5%;
+  width: 103%;
+  height: 41%;
+  clip-path: polygon(
+    12% 0,
+    88% 0,
+    93% 4%,
+    93% 44%,
+    99% 48%,
+    100% 52%,
+    100% 94%,
+    94% 100%,
+    6% 100%,
+    0 94%,
+    0 52%,
+    1% 48%,
+    7% 44%,
+    7% 4%
+  );
+}
+
+.vial-link::after {
+  top: 38%;
+  left: 10%;
+  width: 80%;
+  height: 62%;
+  clip-path: polygon(6% 0, 94% 0, 94% 7%, 100% 13%, 90% 100%, 10% 100%, 0 13%, 6% 7%);
+}
+
+.vial-link:hover::before,
+.vial-link:hover::after,
+.vial-link:focus-visible::before,
+.vial-link:focus-visible::after,
+.vial-link.is-selected::before,
+.vial-link.is-selected::after,
+.discovery-nav:has(.discovery-link--about:hover) .vial-link--about::before,
+.discovery-nav:has(.discovery-link--about:hover) .vial-link--about::after,
+.discovery-nav:has(.discovery-link--about:focus-visible) .vial-link--about::before,
+.discovery-nav:has(.discovery-link--about:focus-visible) .vial-link--about::after,
+.discovery-nav:has(.discovery-link--portfolio:hover) .vial-link--portfolio::before,
+.discovery-nav:has(.discovery-link--portfolio:hover) .vial-link--portfolio::after,
+.discovery-nav:has(.discovery-link--portfolio:focus-visible) .vial-link--portfolio::before,
+.discovery-nav:has(.discovery-link--portfolio:focus-visible) .vial-link--portfolio::after,
+.discovery-nav:has(.discovery-link--resume:hover) .vial-link--resume::before,
+.discovery-nav:has(.discovery-link--resume:hover) .vial-link--resume::after,
+.discovery-nav:has(.discovery-link--resume:focus-visible) .vial-link--resume::before,
+.discovery-nav:has(.discovery-link--resume:focus-visible) .vial-link--resume::after,
+.discovery-nav:has(.discovery-link--contact:hover) .vial-link--contact::before,
+.discovery-nav:has(.discovery-link--contact:hover) .vial-link--contact::after,
+.discovery-nav:has(.discovery-link--contact:focus-visible) .vial-link--contact::before,
+.discovery-nav:has(.discovery-link--contact:focus-visible) .vial-link--contact::after {
+  opacity: 1;
+}
+
+.vial-link:focus-visible {
+  outline: none;
 }
 
 .simple-page {
