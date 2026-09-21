@@ -1,0 +1,213 @@
+:root {
+  --page-gutter: 24px;
+  --heading-top: 80px;
+  --heading-image-gap: 40px;
+  --image-width: 700px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: #fff;
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+  min-width: 0;
+  margin: 0;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+a {
+  color: inherit;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--heading-top) var(--page-gutter) 56px;
+  text-align: center;
+}
+
+.home h1 {
+  margin: 0;
+  font-size: clamp(36px, 5.45vw, 54px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.discovery-set {
+  position: relative;
+  width: min(100%, var(--image-width));
+  margin: var(--heading-image-gap) auto 0;
+}
+
+.discovery-set img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.discovery-nav {
+  position: absolute;
+  inset: 0;
+}
+
+.discovery-link {
+  position: absolute;
+  top: 35%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 5px;
+  color: #000;
+  font-family: "Arial Narrow", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(12px, 1.7vw, 17px);
+  font-stretch: condensed;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.025em;
+  mix-blend-mode: multiply;
+  opacity: 0.86;
+  text-shadow:
+    0 -0.5px 0 rgba(0, 0, 0, 0.42),
+    0 0.8px 0 rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(-90deg) scaleX(1.12);
+  transform-origin: center;
+  transition: color 120ms ease, opacity 120ms ease, text-shadow 120ms ease;
+}
+
+.discovery-link::after {
+  content: none;
+}
+
+.discovery-link:hover,
+.discovery-link:focus-visible,
+.discovery-link:active {
+  color: #d71936;
+  opacity: 1;
+  text-shadow:
+    0 -0.5px 0 rgba(132, 0, 20, 0.4),
+    0 0.8px 0 rgba(255, 255, 255, 0.68);
+}
+
+.discovery-link:focus-visible {
+  border-radius: 2px;
+  outline: 1px dotted #d71936;
+  outline-offset: 4px;
+}
+
+/* Each left value aligns one label with a fragrance vial. */
+.discovery-link--about {
+  left: 27%;
+}
+
+.discovery-link--portfolio {
+  left: 42.3%;
+}
+
+.discovery-link--resume {
+  left: 57.7%;
+}
+
+.discovery-link--contact {
+  left: 73%;
+}
+
+.simple-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 48px 24px;
+}
+
+.simple-page__content {
+  width: min(100%, 680px);
+  text-align: center;
+}
+
+.simple-page h1 {
+  margin: 0 0 24px;
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+
+.simple-page p {
+  margin: 0 auto 32px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 5px 0;
+  font-weight: 700;
+  text-underline-offset: 4px;
+}
+
+.back-link:hover {
+  opacity: 0.65;
+}
+
+.back-link:focus-visible {
+  outline: 2px solid #000;
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  :root {
+    --page-gutter: 12px;
+    --heading-top: 42px;
+    --heading-image-gap: 36px;
+  }
+
+  .home {
+    padding-bottom: 32px;
+  }
+
+  .discovery-set {
+    width: min(96vw, var(--image-width));
+  }
+
+  .discovery-link {
+    padding: 6px 4px;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --heading-top: 32px;
+    --heading-image-gap: 28px;
+  }
+
+  .home h1 {
+    font-size: 34px;
+  }
+
+  .discovery-link {
+    font-size: 11px;
+    padding: 5px 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
