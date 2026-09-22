@@ -9,12 +9,21 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="simple-page">
-      <section class="simple-page__content" aria-labelledby="page-title">
-        <h1 id="page-title">Resume</h1>
-        <p>Resume content will go here.</p>
-        <a class="back-link" href="index.html">Back to Discover Natalie</a>
+    <main class="resume-page">
+      <section class="resume-viewer" aria-label="Résumé">
+        <object
+          data="files/natalie-austin-resume.pdf#view=FitH&amp;toolbar=0&amp;navpanes=0"
+          type="application/pdf"
+          aria-label="Natalie Austin résumé"
+        >
+          <p>
+            Your browser cannot display the résumé inline.
+            <a href="files/natalie-austin-resume.pdf">Open the PDF</a>.
+          </p>
+        </object>
       </section>
+
+      <a class="back-link resume-home" href="index.html">Home</a>
     </main>
   </body>
 </html>

@@ -94,20 +94,10 @@ a {
 }
 
 .discovery-link:hover,
-.discovery-link:focus-visible,
-.discovery-link:active,
 .discovery-nav:has(.vial-link--about:hover) .discovery-link--about,
-.discovery-nav:has(.vial-link--about:focus-visible) .discovery-link--about,
-.discovery-nav:has(.vial-link--about.is-selected) .discovery-link--about,
 .discovery-nav:has(.vial-link--portfolio:hover) .discovery-link--portfolio,
-.discovery-nav:has(.vial-link--portfolio:focus-visible) .discovery-link--portfolio,
-.discovery-nav:has(.vial-link--portfolio.is-selected) .discovery-link--portfolio,
 .discovery-nav:has(.vial-link--resume:hover) .discovery-link--resume,
-.discovery-nav:has(.vial-link--resume:focus-visible) .discovery-link--resume,
-.discovery-nav:has(.vial-link--resume.is-selected) .discovery-link--resume,
-.discovery-nav:has(.vial-link--contact:hover) .discovery-link--contact,
-.discovery-nav:has(.vial-link--contact:focus-visible) .discovery-link--contact,
-.discovery-nav:has(.vial-link--contact.is-selected) .discovery-link--contact {
+.discovery-nav:has(.vial-link--contact:hover) .discovery-link--contact {
   color: #d71936;
   opacity: 1;
   text-shadow:
@@ -117,7 +107,7 @@ a {
 
 .discovery-link:focus-visible {
   border-radius: 2px;
-  outline: 1px dotted #d71936;
+  outline: 1px dotted #000;
   outline-offset: 4px;
 }
 
@@ -212,31 +202,20 @@ a {
 
 .vial-link:hover::before,
 .vial-link:hover::after,
-.vial-link:focus-visible::before,
-.vial-link:focus-visible::after,
-.vial-link.is-selected::before,
-.vial-link.is-selected::after,
 .discovery-nav:has(.discovery-link--about:hover) .vial-link--about::before,
 .discovery-nav:has(.discovery-link--about:hover) .vial-link--about::after,
-.discovery-nav:has(.discovery-link--about:focus-visible) .vial-link--about::before,
-.discovery-nav:has(.discovery-link--about:focus-visible) .vial-link--about::after,
 .discovery-nav:has(.discovery-link--portfolio:hover) .vial-link--portfolio::before,
 .discovery-nav:has(.discovery-link--portfolio:hover) .vial-link--portfolio::after,
-.discovery-nav:has(.discovery-link--portfolio:focus-visible) .vial-link--portfolio::before,
-.discovery-nav:has(.discovery-link--portfolio:focus-visible) .vial-link--portfolio::after,
 .discovery-nav:has(.discovery-link--resume:hover) .vial-link--resume::before,
 .discovery-nav:has(.discovery-link--resume:hover) .vial-link--resume::after,
-.discovery-nav:has(.discovery-link--resume:focus-visible) .vial-link--resume::before,
-.discovery-nav:has(.discovery-link--resume:focus-visible) .vial-link--resume::after,
 .discovery-nav:has(.discovery-link--contact:hover) .vial-link--contact::before,
-.discovery-nav:has(.discovery-link--contact:hover) .vial-link--contact::after,
-.discovery-nav:has(.discovery-link--contact:focus-visible) .vial-link--contact::before,
-.discovery-nav:has(.discovery-link--contact:focus-visible) .vial-link--contact::after {
+.discovery-nav:has(.discovery-link--contact:hover) .vial-link--contact::after {
   opacity: 1;
 }
 
 .vial-link:focus-visible {
-  outline: none;
+  outline: 1px dotted #000;
+  outline-offset: 3px;
 }
 
 .simple-page {
@@ -280,6 +259,155 @@ a {
   outline-offset: 4px;
 }
 
+.about-home {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  padding: 6px;
+  color: #77736e;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transform: translateX(-50%);
+  transition: color 140ms ease, opacity 140ms ease;
+}
+
+.about-home:hover {
+  color: #d71936;
+}
+
+.about-home:focus-visible {
+  outline: 1px solid #000;
+  outline-offset: 3px;
+}
+
+.contact-page {
+  min-height: 100vh;
+  padding: clamp(130px, 20vh, 190px) 24px 96px;
+  background: var(--page-background);
+}
+
+.contact-page__content {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 0;
+  color: #77736e;
+  font-size: clamp(34px, 4vw, 44px);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.contact-heading::before,
+.contact-heading::after {
+  width: clamp(68px, 8vw, 108px);
+  border-top: 1px solid currentColor;
+  content: "";
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(54px, 9vw, 132px);
+  align-items: center;
+  width: fit-content;
+  margin: clamp(132px, 18vh, 182px) auto 0;
+}
+
+.contact-card {
+  display: flex;
+  width: 88px;
+  height: 94px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 7px 6px;
+  border: 1px solid rgba(119, 115, 110, 0.18);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.48);
+  color: #77736e;
+}
+
+.contact-icon {
+  display: block;
+  width: 54px;
+  height: 54px;
+  overflow: hidden;
+}
+
+.contact-icon svg,
+.contact-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.contact-icon img {
+  object-fit: cover;
+}
+
+.contact-card__label {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.contact-home {
+  position: fixed;
+  bottom: 164px;
+  left: 210px;
+}
+
+.resume-page {
+  min-height: 100vh;
+  padding: 44px 24px 72px;
+  background: var(--page-background);
+}
+
+.resume-home {
+  display: block;
+  width: min(100%, 850px);
+  margin: 22px auto 0;
+  text-align: right;
+}
+
+.resume-viewer {
+  width: min(100%, 850px);
+  height: max(760px, calc(100vh - 165px));
+  margin: 0 auto;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(139, 119, 91, 0.2);
+  border-radius: 3px;
+  background: rgba(255, 252, 245, 0.62);
+  box-shadow:
+    0 2px 8px rgba(78, 65, 48, 0.05),
+    0 20px 54px rgba(78, 65, 48, 0.1);
+}
+
+.resume-viewer object {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 1px;
+  background: #fffdf8;
+}
+
+.resume-viewer p {
+  padding: 40px 24px;
+  text-align: center;
+}
+
 @media (max-width: 700px) {
   :root {
     --page-gutter: 12px;
@@ -298,6 +426,35 @@ a {
   .discovery-link {
     padding: 6px 4px;
   }
+
+  .contact-page {
+    padding-top: 92px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 104px;
+  }
+
+  .contact-home {
+    bottom: 72px;
+    left: 72px;
+  }
+
+  .resume-page {
+    padding: 24px 12px 36px;
+  }
+
+  .resume-home {
+    margin-top: 16px;
+  }
+
+  .resume-viewer {
+    height: calc(100vh - 104px);
+    min-height: 600px;
+    padding: 6px;
+  }
 }
 
 @media (max-width: 420px) {
@@ -313,6 +470,31 @@ a {
   .discovery-link {
     font-size: 11px;
     padding: 5px 3px;
+  }
+
+  .contact-heading {
+    gap: 10px;
+    font-size: 32px;
+  }
+
+  .contact-heading::before,
+  .contact-heading::after {
+    width: 46px;
+  }
+
+  .contact-card {
+    width: 88px;
+    height: 94px;
+    padding-top: 8px;
+  }
+
+  .contact-icon {
+    width: 54px;
+    height: 54px;
+  }
+
+  .contact-card__label {
+    font-size: 13px;
   }
 }
 

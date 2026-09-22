@@ -9,12 +9,49 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="simple-page">
-      <section class="simple-page__content" aria-labelledby="page-title">
-        <h1 id="page-title">Contact</h1>
-        <p>Contact information will go here.</p>
-        <a class="back-link" href="index.html">Back to Discover Natalie</a>
+    <main class="contact-page">
+      <section class="contact-page__content" aria-labelledby="page-title">
+        <h1 class="contact-heading" id="page-title">Contact</h1>
+
+        <div class="contact-grid" aria-label="Contact options">
+          <div class="contact-card">
+            <div class="contact-icon contact-icon--email" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <defs>
+                  <linearGradient id="email-blue" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#2d75ea"/>
+                    <stop offset="1" stop-color="#22b9dc"/>
+                  </linearGradient>
+                </defs>
+                <rect width="120" height="120" fill="url(#email-blue)"/>
+                <rect x="19" y="35" width="82" height="53" rx="2" fill="#fffdf8"/>
+                <path d="M21 38 60 72 99 38M21 85l29-27m49 27L70 58" fill="none" stroke="#24a6dd" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <span class="contact-card__label">Email</span>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon contact-icon--linkedin" aria-hidden="true">
+              <svg viewBox="0 0 120 120" role="img">
+                <rect width="120" height="120" rx="3" fill="#137bb5"/>
+                <circle cx="27" cy="27" r="10" fill="#fff"/>
+                <rect x="18" y="44" width="19" height="57" fill="#fff"/>
+                <path d="M48 44h18v8c6-7 13-10 22-10 19 0 25 12 25 31v28H93V76c0-11-3-18-12-18-10 0-14 7-14 18v25H48Z" fill="#fff"/>
+              </svg>
+            </div>
+            <span class="contact-card__label">LinkedIn</span>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon contact-icon--fragrantica" aria-hidden="true">
+              <img src="images/fragrantica-dew.png" alt="">
+            </div>
+            <span class="contact-card__label">Fragrantica</span>
+          </div>
+        </div>
       </section>
     </main>
+    <a class="back-link contact-home" href="index.html" aria-label="Return to home">Home</a>
   </body>
 </html>
